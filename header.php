@@ -61,6 +61,5 @@ include("util/functions.php");
 			</nav>
 		</div>
 	</div>
-
 </div>
 <!--Navigation bar ends -->
