@@ -24,7 +24,7 @@ include("util/functions.php");
 		<div class="col-xs-3"></div>
 
 	</div>
-	<div class="container-fluid">
+	<div class="container-fluid" id="navbar-container">
 		<div name="nav bar">
 			<nav class="navbar navbar-default">
 			<div class="container-fluid">

@@ -1,6 +1,8 @@
 *{
 	margin: 0;
 	text-decoration: none;
+	padding-right: 0px;
+	padding-left: 0px;
 
 }
 
@@ -32,6 +34,10 @@ html, body{
 .navbar .navbar-collapse {
   text-align: center;
 }
+#navbar-container{
+	padding-left: 0px;
+	padding-right: 0px;
+}
 
 #main-content{
 	width: 100%;
@@ -41,16 +47,19 @@ html, body{
 #content-container{
 	padding-top: 20px;
 	padding-bottom: 30px;
-	width: 60%;
+	width: 75%;
 	margin: auto;
 
+}
+#index-blog-posts{
+	height: 30%;
+	width: 100%;
 }
 
 #index-blog-posts{
 	border-top: thick double #000;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	border-bottom: thick double #000;
 }
 
 #footer{
