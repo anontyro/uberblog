@@ -35,6 +35,10 @@ include("header.php");
 	<!-- Index list of most recent blog posts END-->
 	</div>
 </div>
+</div>
+
 </body>
+<div>
 <?php include("footer.php"); ?>
+</div>
 </html>

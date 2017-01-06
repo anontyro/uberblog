@@ -23,7 +23,7 @@ function indexPostDisplay(){
 			<div class='col-md-4' id='index-latest-blogs'>
 			<?php
 				echo "<img src='$blog_rs[mainimage]' class='img-responsive'/>";
-				echo "<h3 id='title-blog-index'>".$blog_rs['title'].'<br></h3>';
+				echo "<a href='pages/blogpost.php/?post=".$blog_rs['id']."'> <h3 id='title-blog-index'>".$blog_rs['title'].'<br></h3></a>';
 				
 				echo strtoupper("<p id='author-blog-index'>by ".$blog_rs['author']);
 				$date = DateTime::createFromFormat('Y-m-d', $blog_rs['published']);
@@ -43,5 +43,29 @@ function indexPostDisplay(){
 			echo "<br><p>$count total number of posts pulled<p/>";
 }
 
+//function to call the blog post to display it taking the blog id from the url
+function loadblogpost(){
+	$blogID = $_GET['post'];
+	include("dbconnect.php");
+	$post_sql = "SELECT * FROM `blog`WHERE draft=0 AND id=$blogID";
+	$post_query = mysqli_query($dbconnect, $post_sql);
+	$post_rs = mysqli_fetch_assoc($post_query);
+
+	return($post_rs);
+}
+
+//list 10 posts starting with the startIndex to display
+function listBlogContent(pageIndex){
+	if(isset($_GET['page'])){
+		$pageNumber = $_GET['page'];
+	}else{
+
+	}
+}
+
+
+function totalNumberOfBlogPosts(){
+
+}
 
  ?>
