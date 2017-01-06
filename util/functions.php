@@ -44,7 +44,7 @@ function indexPostDisplay(){
 }
 
 //function to call the blog post to display it taking the blog id from the url
-function loadblogpost(){
+function loadBlogPost(){
 	$blogID = $_GET['post'];
 	include("dbconnect.php");
 	$post_sql = "SELECT * FROM `blog`WHERE draft=0 AND id=$blogID";
@@ -55,17 +55,30 @@ function loadblogpost(){
 }
 
 //list 10 posts starting with the startIndex to display
-function listBlogContent(pageIndex){
+function listBlogContent($postsPerPage){
+	include("dbconnect.php");
+	$pageNumber = 0;
+
 	if(isset($_GET['page'])){
 		$pageNumber = $_GET['page'];
-	}else{
-
 	}
+
+	$blogList_sql = "SELECT * FROM blog WHERE draft=0 ORDER BY published DESC LIMIT $postsPerPage OFFSET $pageNumber";
+	$blogList_query = mysqli_query($dbconnect,$blogList_sql);
+	$blogList_rs = mysqli_fetch_assoc($blogList_query);
+
+	return($blogList_rs);
+
 }
 
 
 function totalNumberOfBlogPosts(){
+	include("dbconnect.php");
+	$blogCount_sql = "SELECT COUNT(*) FROM blog";
+	$blogCount_query = mysqli_query($dbconnect, $blogCount_sql);
+	$blogCount_rs = mysqli_fetch_array($blogCount_query);
 
+	return $blogCount_rs[0];
 }
 
  ?>

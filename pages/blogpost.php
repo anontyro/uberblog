@@ -1,9 +1,8 @@
 <?php
 
 include("../header.php");
-$post_rs = loadblogpost();
+$post_rs = loadBlogPost();
 ?>
-<link href="../../style/style.css" rel="stylesheet" type="text/css" />
 
 <!DOCTYPE html>
 <html>

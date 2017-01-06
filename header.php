@@ -14,7 +14,7 @@ include("util/functions.php");
 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-<link href="style/style.css" rel="stylesheet" type="text/css" />
+<link href="/uberblog/style/style.css" rel="stylesheet" type="text/css" />
 
 <!--Navigation bar -->
 <div class="container-fullwidth" id="header-container">
@@ -47,7 +47,7 @@ include("util/functions.php");
 							$cat_rs=mysqli_fetch_assoc($cat_query);
 							do{ ?>
 						<!--Links created from the database here -->
-						<li><a href="<?php echo $cat_rs['url'] ?>">
+						<li><a href="<?php echo '/uberblog/'.$cat_rs['url'] ?>">
 						<?php echo $cat_rs['category']; ?></a></li>
 
 						<?php
