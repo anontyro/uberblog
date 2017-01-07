@@ -49,7 +49,7 @@ function loadBlogPost(){
 	include("dbconnect.php");
 	$post_sql = "SELECT * FROM `blog`WHERE draft=0 AND id=$blogID";
 	$post_query = mysqli_query($dbconnect, $post_sql);
-	$post_rs = mysqli_fetch_assoc($post_query);
+	$post_rs = mysqli_fetch_array($post_query);
 
 	return($post_rs);
 }
