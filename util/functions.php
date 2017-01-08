@@ -69,23 +69,28 @@ function listBlogContent($postsPerPage){
 
 	//<!-- List of blog posts logic goes here -->
 	do{ ?>
-	<div id="bloglist-content-container">
-		<div class="row">
-			<div id="bloglist-image">
+		<div class="row bloglist-post-row" >
+			<div id="bloglist-image" class="col-md-5"'>
 			<?php 
-				echo "<img src='$blogList_rs[mainimage]' class='img-responsive'/>";
+				echo "<img src='/uberblog/$blogList_rs[mainimage]' class='img-responsive'/>";
 			 
 			?>
 			</div>
-			<div id="bloglist-content" class="col-md-4">
+			<div id="bloglist-content" class="col-md-6">
 			<?php  
-			echo $blogList_rs['author']."<br>";
-			echo $blogList_rs['title'];
+			echo "<a href='/uberblog/pages/blogpost.php/?post=".$blogList_rs['id']."'> <h3 id='title-blog-index'>".$blogList_rs['title'].'<br></h3></a>';
+			echo strtoupper("<p id='author-blogList-index'>by ".$blogList_rs['author']);
+			$date = DateTime::createFromFormat('Y-m-d', $blogList_rs['published']);
+			$newDateString = $date->format('d M, Y');
+
+			echo ", ".strtoupper($newDateString).'</p>';
+
+			echo "<p id='body-blog-index'>".substr($blogList_rs['body'],0,250)."...</p>";
 			?>
 			</div>
 		</div>			
-	</div>
-	//<!-- List of blog posts END-->
+	
+	<!-- List of blog posts END-->
 	<?php
 	} while($blogList_rs = mysqli_fetch_assoc($blogList_query));
 }

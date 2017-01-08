@@ -96,3 +96,10 @@ html, body{
 	width: 60%;
 	margin-left: 80px;
 }
+
+.bloglist-post-row{
+	margin-bottom: 20px;
+}
+#bloglist-content{
+	padding-bottom: 10px;
+}

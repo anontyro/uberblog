@@ -11,9 +11,9 @@ include("../header.php");
 </head>
 <body>
 <div id="main-content">
-
-<?php  listBlogContent(10); ?>
-
+	<div id="blog-content-container">
+		<?php  listBlogContent(10); ?>
+	</div>
 </div>
 
 <div id="bloglist-pagination">
