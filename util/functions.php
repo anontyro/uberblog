@@ -67,8 +67,27 @@ function listBlogContent($postsPerPage){
 	$blogList_query = mysqli_query($dbconnect,$blogList_sql);
 	$blogList_rs = mysqli_fetch_assoc($blogList_query);
 
-	return($blogList_rs);
-
+	//<!-- List of blog posts logic goes here -->
+	do{ ?>
+	<div id="bloglist-content-container">
+		<div class="row">
+			<div id="bloglist-image">
+			<?php 
+				echo "<img src='$blogList_rs[mainimage]' class='img-responsive'/>";
+			 
+			?>
+			</div>
+			<div id="bloglist-content" class="col-md-4">
+			<?php  
+			echo $blogList_rs['author']."<br>";
+			echo $blogList_rs['title'];
+			?>
+			</div>
+		</div>			
+	</div>
+	//<!-- List of blog posts END-->
+	<?php
+	} while($blogList_rs = mysqli_fetch_assoc($blogList_query));
 }
 
 
@@ -81,4 +100,4 @@ function totalNumberOfBlogPosts(){
 	return $blogCount_rs[0];
 }
 
- ?>
+?>
