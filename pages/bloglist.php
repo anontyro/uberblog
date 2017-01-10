@@ -26,13 +26,34 @@ include("../header.php");
 	$numberOfPages = ceil(($output / $postsPerPage));
 	if($numberOfPages > 1){
 	?>
-		<button class="btn btn-default"><</button>
+		<a href="/uberblog/pages/bloglist.php?page=<?php 
+		 if(isset($_GET['page'])){
+			 $nextPage = $_GET['page']-1;
+			 if($nextPage > 0){
+			 	echo $nextPage; 
+			 }else{
+			 	echo "0";
+			 }
+			}else{ echo "0";}
+		 ?>"
+		   class="btn btn-primary" role="button"> < </a>
+
 		<?php 
 			for($x = 0; $x < $numberOfPages; $x++){
 				echo '<a href="/uberblog/pages/bloglist.php?page='.$x.'" class="btn btn-primary" role="button"> '.($x+1).' </a> ';
 			}
 		 ?>
-		 <a href="/uberblog/pages/bloglist.php?page=<?php echo ($_GET['page']+1); ?>"  class="btn btn-primary" role="button"> > </a>
+		 <a href="/uberblog/pages/bloglist.php?page=<?php 
+		 if(isset($_GET['page'])){
+			 $nextPage = $_GET['page']+1;
+			 if($nextPage < $numberOfPages){
+			 	echo $nextPage; 
+			 }else{
+			 	echo $numberOfPages;
+			 }
+			}else{ echo "1";}
+		 ?>"
+		   class="btn btn-primary" role="button"> > </a>
 	<?php
 	}
 	echo "number of pages = $numberOfPages";

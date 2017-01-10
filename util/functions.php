@@ -60,7 +60,7 @@ function listBlogContent($postsPerPage){
 	$pageNumber = 0;
 
 	if(isset($_GET['page'])){
-		$pageNumber = $_GET['page'];
+		$pageNumber = $_GET['page']*10;
 	}
 
 	$blogList_sql = "SELECT * FROM blog WHERE draft=0 ORDER BY published DESC LIMIT $postsPerPage OFFSET $pageNumber";
