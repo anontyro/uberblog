@@ -10,9 +10,11 @@ include("../header.php");
 	<title></title>
 </head>
 <body>
-<div id="main-content">
-	<div id="blog-content-container">
-		<?php  listBlogContent(10); ?>
+<div id="row">
+	<div id="main-content" class="col-md-8">
+		<div id="blog-content-container">
+			<?php  listBlogContent(10); ?>
+		</div>
 	</div>
 </div>
 

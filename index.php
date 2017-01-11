@@ -19,7 +19,7 @@ include("header.php");
 			</div>
 			<div id="landing-content" class="col-md-8">
 				<p>
-				<?php  landingcontent(); ?>
+				<?php  getContent('landingcontent'); ?>
 				</p>
 			</div>
 		</div>
